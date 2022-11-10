@@ -16,7 +16,7 @@ public class MergeSort {
 
         while (
                 leftSubArraySmallestRemainingElementIndex < leftSubArraySize &&
-                        rightSubArraySmallestRemainingElementIndex < rightSubArraySize
+                rightSubArraySmallestRemainingElementIndex < rightSubArraySize
         ) {
             if (leftSubArray[leftSubArraySmallestRemainingElementIndex] < rightSubArray[rightSubArraySmallestRemainingElementIndex]) {
                 array[currentElementIndex] = leftSubArray[leftSubArraySmallestRemainingElementIndex];
@@ -53,7 +53,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int ARRAY_SIZE = 10000000;
+        int ARRAY_SIZE = 100000000;
         Random random = new Random();
         int[] array = new int[ARRAY_SIZE];
         for (int i = 0; i < ARRAY_SIZE; i++) {
@@ -61,11 +61,23 @@ public class MergeSort {
         }
         LocalTime timeBefore = LocalTime.now();
         System.out.println("Start sorting");
-        System.out.println("Array before sorting: " + Arrays.toString(array));
+        //System.out.println("Array before sorting: " + Arrays.toString(array));
         sort(array, 0 , array.length - 1);
         LocalTime timeAfter = LocalTime.now();
         System.out.println("Finish sorting");
-        System.out.println("Array after sorting: " + Arrays.toString(array));
+        //System.out.println("Array after sorting: " + Arrays.toString(array));
         System.out.println("Time :" + (timeAfter.getSecond() - timeBefore.getSecond()));
+
+        for (int i = 0; i < ARRAY_SIZE; i++) {
+            array[i] = random.nextInt(ARRAY_SIZE);
+        }
+        LocalTime timeBefore1 = LocalTime.now();
+        System.out.println("Start sorting");
+        //System.out.println("Array before sorting: " + Arrays.toString(array));
+        Arrays.sort(array);
+        LocalTime timeAfter1 = LocalTime.now();
+        System.out.println("Finish sorting");
+        //System.out.println("Array after sorting: " + Arrays.toString(array));
+        System.out.println("Time :" + (timeAfter1.toSecondOfDay() - timeBefore1.toSecondOfDay()));
     }
 }
