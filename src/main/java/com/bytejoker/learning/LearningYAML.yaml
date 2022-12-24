@@ -1,0 +1,58 @@
+# Scalar
+  value
+# Sequence of scalars
+- value1
+- value2
+- value3
+# Mapping scalar to scalar
+key0: value
+key1: "value"
+key2: "value \n"
+key3: 111
+# Mapping scalar to sequence of scalar
+list:
+  - value1
+  - value2
+  - value3
+  # Sequence of mappings scalar to scalar
+  -
+    app: myapp1
+    port: 8080
+  -
+    app: myapp2
+    port: 8081
+  # Sequence of sequences of scalars
+  -
+    - value1
+    - value2
+  -
+    - value1
+    - value2
+# Mapping of mapping
+list:
+  key1: value1
+  key2: value2
+
+# Mapping between sequence
+? - value1
+  - value2
+  :
+    - value3
+    - value4
+# Mapping between mappings of scalars and scalar sequence
+? key1: value1
+  key2: value2
+  :
+    - value3
+    - value4
+# Multiline
+multiline: |
+  some 
+  multiline
+  text
+# Single line
+single-line: >
+  some 
+  single 
+  line 
+  text
